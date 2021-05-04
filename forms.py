@@ -1,10 +1,10 @@
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, TextAreaField, SubmitField, RadioField, SelectField
 
 from wtforms.validators import DataRequired, ValidationError
 
 
-class ContactForm(Form):
+class ContactForm(FlaskForm):
     name = StringField('Name of student',
                        validators=[DataRequired()])
     gender = RadioField('Gender', choices=[('M', 'Male'),

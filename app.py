@@ -6,8 +6,10 @@ from forms import ContactForm
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'try-to-guess'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
+from models import Contact
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -19,4 +21,5 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run()
+    db.create_all()
+    app.run(debug=True)
