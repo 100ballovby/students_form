@@ -11,7 +11,7 @@ class ContactForm(FlaskForm):
                                            ('F', 'Female'),
                                            ('O', 'Other')])
     address = TextAreaField('Address')
-    email = TextAreaField('Email',
+    email = StringField('Email',
                           validators=[DataRequired()])
     age = IntegerField('Age')
     language = SelectField('Languages', choices=[('cpp', 'C++'),

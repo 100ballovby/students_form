@@ -9,6 +9,7 @@
     {% for error in form.email.errors %}
         {{ error }}
     {% endfor %}
+
     <h1 class="h3 mb-3 fw-normal">Contact form</h1>
     <form class="contact" action="" method="post">
         {{ form.hidden_tag() }}
@@ -28,6 +29,10 @@
         <div class="mb-3">
             {{ form.age.label }}
             {{ form.age(class="form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ form.address.label }}
+            {{ form.address(class="form-control") }}
         </div>
         <div class="mb-3">
             {{ form.language.label }}
