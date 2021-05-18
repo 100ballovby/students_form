@@ -10,16 +10,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 from models import *
-
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    form = ContactForm()
-    if request.method == 'POST':
-        return render_template('success.html')
-    else:
-        return render_template('contacts.html', form=form)
+from routes import *
 
 
 if __name__ == '__main__':
-    db.create_all()
     app.run(debug=True)
