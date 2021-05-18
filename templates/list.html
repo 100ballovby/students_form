@@ -2,6 +2,27 @@
 
 {% block content %}
 
-    table.table.table-striped
+    <table class="table table-striped">
+        <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Gender</th>
+            <th>Language</th>
+            <th>Age</th>
+        </tr>
+        {% for person in items %}
+            <tr>
+                <td>{{ person.id }}</td>
+                <td>{{ person.name }}</td>
+                <td>{{ person.email }}</td>
+                <td>{{ person.address }}</td>
+                <td>{{ person.gender }}</td>
+                <td>{{ person.language }}</td>
+                <td>{{ person.age }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 
 {% endblock %}
