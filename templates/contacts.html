@@ -2,8 +2,6 @@
 
 {% block content %}
 
-    <h1>Contact form</h1>
-
     {% for error in form.name.errors %}
         {{ error }}
     {% endfor %}
@@ -11,30 +9,33 @@
     {% for error in form.email.errors %}
         {{ error }}
     {% endfor %}
+    <h1 class="h3 mb-3 fw-normal">Contact form</h1>
+    <form class="contact" action="" method="post">
+        {{ form.hidden_tag() }}
 
+        <div class="mb-3">
+            {{ form.name.label }}
+            {{ form.name(class="form-control", placeholder="John") }}
+        </div>
+        <div class="mb-3">
+            {{ form.gender.label }}
+            {{ form.gender() }}
+        </div>
+        <div class="mb-3">
+            {{ form.email.label }}
+            {{ form.email(class="form-control", placeholder="example@gmail.com") }}
+        </div>
+        <div class="mb-3">
+            {{ form.age.label }}
+            {{ form.age(class="form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ form.language.label }}
+            {{ form.language(class="form-select") }}
+        </div>
 
-<form action="" method="post">
-    {{ form.hidden_tag() }}
-
-    {{ form.name.label }}
-    {{ form.name }}
-
-    <br>
-    {{ form.gender.label }}
-    {{ form.gender }}
-    {{ form.address.label }}<br>
-    {{ form.address }}
-    <br>
-    {{ form.email.label }}
-    {{ form.email }}
-    <br>
-    {{ form.age.label }}
-    {{ form.age }}
-    <br>
-    {{ form.language.label }}
-    {{ form.language }}
-    <br>
-    {{ form.submit }}
-</form>
+        {{ form.submit(class="w-100 btn btn-lg btn-primary") }}
+        <p class="mt-5 mb-3 text-muted">© 2017–2021</p>
+    </form>
 
 {% endblock %}
