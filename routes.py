@@ -21,3 +21,10 @@ def index():
         return render_template('success.html')
     else:
         return render_template('contacts.html', form=form)
+
+
+@app.route('/list')
+def contact_list():
+    contacts = Contact.query.all()
+    # ^ достаю из базы все записанные контакты
+    return render_template('list.html', items=contacts)
